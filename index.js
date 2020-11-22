@@ -1,17 +1,6 @@
-const fastify = require('fastify')({
-  logger: { prettyPrint: true },
-})
+import container from './src/container.js'
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
+const app = container.cradle.app
+const server = container.cradle.server
 
-const start = async () => {
-  try {
-    await fastify.listen(3000)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
-}
-start()
+app(server)
