@@ -6,4 +6,4 @@ module.exports = {
       directory: './src/infra/database/migrates',
     },
   },
-}
+};
