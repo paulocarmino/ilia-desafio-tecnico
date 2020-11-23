@@ -1,11 +1,12 @@
-const knexfile = {
+module.exports = {
   development: {
     client: 'pg',
-    connection: `postgresql://postgres:desafioiliapw@postgres:5432/desafioilia`,
+    connection: `postgresql://postgres:desafioiliapw@postgres:5432/desafioilia2`,
     migrations: {
       directory: './src/infra/database/migrates',
     },
+    seeds: {
+      directory: './src/infra/database/seeds',
+    },
   },
 };
-
-export default knexfile;

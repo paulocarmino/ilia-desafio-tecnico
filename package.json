@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec sucrase-node index.js",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
     "test": "jest",
     "test:watch": "yarn test --watch"
   },
