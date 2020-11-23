@@ -1,5 +1,3 @@
-import Boom from '@hapi/boom';
-
 import container from '../../container.js';
 
 const moviesOperations = {
@@ -7,11 +5,7 @@ const moviesOperations = {
     try {
       const movies = await container.cradle.moviesRepository.getAll();
 
-      if (movies.length > 0) {
-        return movies;
-      }
-
-      throw Boom.notFound('No movies found!');
+      return movies;
     } catch (error) {
       console.error(error);
     }
@@ -21,8 +15,6 @@ const moviesOperations = {
       const movie = await container.cradle.moviesRepository.getById(movieId);
 
       return movie;
-
-      // throw Boom.notFound('No movie with this ID was found')
     } catch (error) {
       console.error(error);
     }
@@ -30,10 +22,6 @@ const moviesOperations = {
   createMovie: async (movie) => {
     try {
       const movieId = await container.cradle.moviesRepository.create(movie);
-
-      if (movieId === null) {
-        throw Boom.badRequest('Error creating movie');
-      }
 
       return movieId;
     } catch (error) {
