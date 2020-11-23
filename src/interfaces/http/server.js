@@ -5,11 +5,15 @@ import path from 'path'
 const createServer = () => {
   const server = fastify({ logger: { prettyPrint: true } })
 
+  // General error handler
   server.setErrorHandler((error, req, res) => {
-    req.log.error(error.toString())
-    res.send({ error })
+    const msgError = error.toString()
+
+    req.log.error(msgError)
+    res.send({ error: msgError })
   })
 
+  // Autoload routes
   server.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
   })

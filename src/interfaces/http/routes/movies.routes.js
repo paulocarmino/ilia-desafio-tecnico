@@ -1,10 +1,8 @@
-import container from '../../../container.js'
+import container from '../../../container'
+const { moviesController } = container.cradle
 
 module.exports = async function (fastify) {
-  fastify.get('/movies', getAllMoviesHandler)
-}
-
-const getAllMoviesHandler = () => {
-  const movies = container.cradle.getAllMovies()
-  return movies
+  fastify.get('/movies', moviesController.index)
+  fastify.get('/movies/:movieId', moviesController.show)
+  fastify.post('/movies', moviesController.create)
 }
