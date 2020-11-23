@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "a04bf934-6942-4622-a0fb-63354a47e8c8",
+		"name": "IliaDesafioTecnico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Get All Movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"adult\": false,\n  \"backdrop_path\": \"/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg\",\n  \"budget\": 63000000,\n  \"homepage\": \"\",\n  \"imdb_id\": \"tt0137523\",\n  \"original_language\": \"en\",\n  \"original_title\": \"Fight Club\",\n  \"overview\": \"A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \\\"fight clubs\\\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.\",\n  \"popularity\": 0.5,\n  \"poster_path\": null,\n  \"release_date\": \"1999-10-12\",\n  \"revenue\": 100853753,\n  \"runtime\": 139,\n  \"status\": \"Released\",\n  \"tagline\": \"How much can you know about yourself if you've never been in a fight?\",\n  \"title\": \"Fight Club\",\n  \"video\": false,\n  \"vote_average\": 7.8,\n  \"vote_count\": 3439\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Translations",
+			"item": [
+				{
+					"name": "Get Translations By MovieId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/2/translations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"2",
+								"translations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Translation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Український\",\n    \"english_name\": \"Ukrainian\",\n    \"title\": \"Бійцівський клуб\",\n    \"overview\": \"Джек, страждає хронічним безсонням і відчайдушно намагається вирватися з нудного життя. Саме тоді він зустрічає Тайлера Дердена, торговця із збоченою філософією. Тайлер впевнений, що самовдосконалення - доля слабких, а саморуйнування - єдине, заради чого варто жити. І ось вже Джек і Тайлер луплять один одному пики на стоянці перед баром, що приносить їм неабияке задоволення. Залучаючи інших чоловіків до простих радощів фізичної жорстокості, Джек і Тайлер засновують таємний Бійцівський Клуб, який має величезний успіх. Але Джека чекає шокуюче відкриття, здатне змінити все...\",\n    \"homepage\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/2/translations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"2",
+								"translations"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
