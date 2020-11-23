@@ -8,6 +8,7 @@
     "dev": "nodemon --exec sucrase-node index.js"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.0",
     "awilix": "^4.2.7",
     "fastify": "^3.8.0",
     "fastify-autoload": "^3.3.1",

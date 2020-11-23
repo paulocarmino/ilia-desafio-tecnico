@@ -2,11 +2,11 @@ import db from '../db'
 
 const moviesRepository = {
   getAll: async () => {
-    const movies = db('movies').select()
+    const movies = await db('movies').select()
     return movies
   },
   getById: async (movieId) => {
-    const movie = db('movies').where({ id: movieId })
+    const movie = await db('movies').where({ id: movieId })
     return movie
   },
   create: async (movie) => {

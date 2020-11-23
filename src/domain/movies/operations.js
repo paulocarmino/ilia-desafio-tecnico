@@ -1,36 +1,42 @@
+import Boom from '@hapi/boom'
+
 import container from '../../container.js'
 
 const moviesOperations = {
   getAllMovies: async () => {
-    const { getAllMoviesEvent } = container.cradle.movieManager
-
     try {
       const movies = await container.cradle.moviesRepository.getAll()
-      getAllMoviesEvent.emit('SUCCESS', movies)
+
+      if (movies.length > 0) {
+        return movies
+      }
+
+      throw Boom.notFound('No movies found!')
     } catch (error) {
-      getAllMoviesEvent.emit('ERROR', error)
       console.error(error)
     }
   },
   getMovieById: async (movieId) => {
-    const { getMovieByIdEvent } = container.cradle.movieManager
-
     try {
-      const movies = await container.cradle.moviesRepository.getById(movieId)
-      getMovieByIdEvent.emit('SUCCESS', movies)
+      const movie = await container.cradle.moviesRepository.getById(movieId)
+
+      return movie
+
+      // throw Boom.notFound('No movie with this ID was found')
     } catch (error) {
-      getMovieByIdEvent.emit('ERROR', error)
       console.error(error)
     }
   },
   createMovie: async (movie) => {
-    const { createMovieEvent } = container.cradle.movieManager
-
     try {
-      const movies = await container.cradle.moviesRepository.create(movie)
-      createMovieEvent.emit('SUCCESS', movies)
+      const movieId = await container.cradle.moviesRepository.create(movie)
+
+      if (movieId === null) {
+        throw Boom.badRequest('Error creating movie')
+      }
+
+      return movieId
     } catch (error) {
-      createMovieEvent.emit('ERROR', error)
       console.error(error)
     }
   },

@@ -1,40 +1,25 @@
 import container from '../../container.js'
 
 const moviesController = {
-  index: async (req, reply) => {
-    const { getAllMoviesEvent } = container.cradle.movieManager
+  index: async () => {
     const { getAllMovies } = container.cradle.moviesOperations
+    const movies = await getAllMovies()
 
-    await getAllMoviesEvent.on('SUCCESS', (movies) => {
-      console.log(movies)
-      reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(movies)
-    })
-
-    getAllMovies()
+    return movies
   },
-  show: async (req, reply) => {
+  show: async (req) => {
     const { movieId } = req.params
-    const { getMovieByIdEvent } = container.cradle.movieManager
-    const { getMovieById } = container.cradle.moviesOperations
+    const { getMovieById } = req.container.cradle.moviesOperations
 
-    await getMovieByIdEvent.on('SUCCESS', (movies) => {
-      console.log(movies)
-      reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(movies)
-    })
-
-    getMovieById(movieId)
+    const movie = await getMovieById(movieId)
+    return movie
   },
-  create: async (req, reply) => {
+  create: async (req) => {
     const { body: movie } = req
-    const { createMovieEvent } = container.cradle.movieManager
     const { createMovie } = container.cradle.moviesOperations
 
-    await createMovieEvent.on('SUCCESS', (movies) => {
-      console.log(movies)
-      reply.code(200).header('Content-Type', 'application/json; charset=utf-8').send(movies)
-    })
-
-    createMovie(movie)
+    const movieId = await createMovie(movie)
+    return movieId
   },
 }
 
