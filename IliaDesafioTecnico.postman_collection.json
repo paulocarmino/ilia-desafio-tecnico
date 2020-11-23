@@ -87,7 +87,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/movies/2/translations",
+							"raw": "http://localhost:3000/movies/1/translations",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -95,7 +95,7 @@
 							"port": "3000",
 							"path": [
 								"movies",
-								"2",
+								"1",
 								"translations"
 							]
 						}
@@ -117,7 +117,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/movies/2/translations",
+							"raw": "http://localhost:3000/movies/1/translations",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -125,7 +125,7 @@
 							"port": "3000",
 							"path": [
 								"movies",
-								"2",
+								"1",
 								"translations"
 							]
 						}
