@@ -1,4 +1,4 @@
-import db from '../db';
+import db from '../db.js';
 
 const translationsRepository = {
   getByMovieId: async (movieId) => {

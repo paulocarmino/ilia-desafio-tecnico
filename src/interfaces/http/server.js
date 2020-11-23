@@ -2,7 +2,7 @@ import fastify from 'fastify';
 import AutoLoad from 'fastify-autoload';
 import path from 'path';
 
-import container from '../../container';
+import container from '../../container.js';
 
 const createServer = () => {
   const server = fastify({ logger: { prettyPrint: true } });
